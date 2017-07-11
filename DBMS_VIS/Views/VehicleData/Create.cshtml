@@ -1,0 +1,101 @@
+﻿@model DBMS_VIS.Models.AppData
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Add new Vehicle Data</h2>
+
+@using (Html.BeginForm())
+{
+
+    <table class="css-reset">
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.InfoID)</th>
+            <td>@Html.TextBoxFor(m => m.InfoID)</td>
+            <td>@Html.ValidationMessageFor(m => m.InfoID)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.OwnerID)</th>
+            <td>@Html.TextBoxFor(m => m.OwnerID)</td>
+            <td>@Html.ValidationMessageFor(m => m.OwnerID)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.OwnerName)</th>
+            <td>@Html.TextBoxFor(m => m.OwnerName)</td>
+            <td>@Html.ValidationMessageFor(m => m.OwnerName)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.Gender)</th>
+            <td>
+                @{
+                    List<SelectListItem> glistItems = new List<SelectListItem>();
+                    glistItems.Add(new SelectListItem { Text = "Male", Value = "Male" });
+                    glistItems.Add(new SelectListItem { Text = "Female", Value = "Female"});
+                    glistItems.Add(new SelectListItem { Text = "Other", Value = "Other"});
+                }
+                @Html.DropDownListFor(model => model.Gender, glistItems, "-- Select Gender --")
+
+            </td>
+
+            <td>@Html.ValidationMessageFor(m => m.Gender)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.VType)</th>
+            <td>
+                 @{
+                     List<SelectListItem> vtlistItems = new List<SelectListItem>();
+                     vtlistItems.Add(new SelectListItem { Text = "2 Wheeler", Value = "2 Wheeler" });
+                     vtlistItems.Add(new SelectListItem { Text = "4 Wheeler", Value = "4 Wheeler", Selected = true });
+                     vtlistItems.Add(new SelectListItem { Text = "6 Wheeler", Value = "6 Wheeler" });}
+                      @Html.DropDownListFor(model => model.VType, vtlistItems, "-- Select Vehicle Type --")
+    
+            </td>
+
+            <td>@Html.ValidationMessageFor(m => m.VType)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.RegistrationNumber)</th>
+            <td>@Html.TextBoxFor(m => m.RegistrationNumber)</td>
+            <td>@Html.ValidationMessageFor(m => m.RegistrationNumber)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.RegistrationDate)</th>
+            <td>@Html.TextBoxFor(m => m.RegistrationDate)</td>
+            <td>@Html.ValidationMessageFor(m => m.RegistrationDate)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.Model)</th>
+            <td>@Html.TextBoxFor(m => m.Model)</td>
+            <td>@Html.ValidationMessageFor(m => m.Model)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.Color)</th>
+            <td>@Html.TextBoxFor(m => m.Color)</td>
+            <td>@Html.ValidationMessageFor(m => m.Color)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.ChassisNumber)</th>
+            <td>@Html.TextBoxFor(m => m.ChassisNumber)</td>
+            <td>@Html.ValidationMessageFor(m => m.ChassisNumber)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.EngineNumber)</th>
+            <td>@Html.TextBoxFor(m => m.EngineNumber)</td>
+            <td>@Html.ValidationMessageFor(m => m.EngineNumber)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.ManufacturedBy)</th>
+            <td>@Html.TextBoxFor(m => m.ManufacturedBy)</td>
+            <td>@Html.ValidationMessageFor(m => m.ManufacturedBy)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.VehicleName)</th>
+            <td>@Html.TextBoxFor(m => m.VehicleName)</td>
+            <td>@Html.ValidationMessageFor(m => m.VehicleName)</td>
+        </tr>
+    </table>
+    <br />
+        <input type="submit" value="Add Record" class="btn-sm"/>
+
+  }
+

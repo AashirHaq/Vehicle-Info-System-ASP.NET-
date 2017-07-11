@@ -1,0 +1,20 @@
+﻿@model DBMS_VIS.Models.AppAdminPanel
+@{
+    ViewBag.Title = "AdminLogin";
+}
+
+
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        
+
+        <div class="login">
+            <h1>Admin Login &nbsp;</h1>
+            <br />
+            <form>
+                <input type="text" name="Username" placeholder="Username" required="required" class="loginip" />
+                <input type="password" name="Password" placeholder="Password" required="required" class="loginip" />
+                <input type="submit" value="Let me in" class="btn btn-primary btn-block btn-large" class="loginip" />
+            </form>
+        </div>
+    }

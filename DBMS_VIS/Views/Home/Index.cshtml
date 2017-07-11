@@ -1,0 +1,35 @@
+﻿@model DBMS_VIS.Models.AppData
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text">Vehicle Information System</h2>
+
+            @using (Html.BeginForm("Search", "Home", FormMethod.Get))
+            {
+
+
+
+                    <div id="searchForm">
+                        <fieldset>
+
+                            
+                            @Html.TextBox("search", null, new { @id = "s", @placeholder = "Search you car..." })
+                            <input type="submit" value="search" id="submitButton" />
+                            <br />
+                            <div id="searchInContainer">
+                                @Html.RadioButton("SearchBy", "RegistrationNumber", true, new { @id = "searchSite" })
+                                <label>Registration Number</label>
+
+                                @Html.RadioButton("SearchBy", "OwnerName", false, new { @id = "searchWeb" })
+                                <label>Owner Name</label>
+                            </div>
+
+
+
+                        </fieldset>
+                    </div>
+
+
+            }
+

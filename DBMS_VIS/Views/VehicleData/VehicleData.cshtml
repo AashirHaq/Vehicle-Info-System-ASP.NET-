@@ -1,0 +1,72 @@
+﻿@model List<DBMS_VIS.Models.AppData>
+@{
+    ViewBag.Title = "VehicleData";
+}
+
+<h1 >Vehicle Data</h1>
+<br />
+@if (Session["username"] != null)
+{
+
+    <div class="login-username">Welcome @Session["username"].ToString()</div>
+    <div style="float:right"><input type="button" class="btn-sm" value="Logout" onclick="location.href='@Url.Action("Logout", "Admin")'"/></div>
+    
+ 
+}
+<br />
+
+<div class="add-new-link">
+    <a href="@Url.Action("Create", "VehicleData")">Add Vehicle Data</a>
+</div>
+<br /><br />
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th>Owner ID</th>
+                <th>Owner Name</th>
+                <th>Gender</th>
+                <th>Vehicle Type</th>
+                <th>Registration Number</th>
+                <th>Registration Date</th>
+                <th>Model</th>
+                <th>Color</th>
+                <th>Chassis Number</th>
+                <th>Engine Number</th>
+                <th>Manufactured By</th>
+                <th>Vehicle Name</th>
+                <th colspan="2">Controller</th>
+            </tr>
+        </thead>
+@{ 
+
+    var altRow = false;
+    foreach (var s in Model)
+    {
+        altRow = !altRow;
+            <tbody>
+                <tr style="background-color:@(altRow? "#e8e8e8" : "white");">
+                    <td>@s.OwnerID</td>
+                    <td>@s.OwnerName</td>
+                    <td>@s.Gender</td>
+                    <td>@s.VType</td>
+                    <td>@s.RegistrationNumber</td>
+                    <td>@s.RegistrationDate</td>
+                    <td>@s.Model</td>
+                    <td>@s.Color</td>
+                    <td>@s.ChassisNumber</td>
+                    <td>@s.EngineNumber</td>
+                    <td>@s.ManufacturedBy</td>
+                    <td>@s.VehicleName</td>
+                    <!-- <td>@Html.ActionLink("Detail", "Details", "VehicleData", new { Id = @s.InfoID }, null)</td> -->
+                    <td>@Html.ActionLink("Update", "Update", "VehicleData", new { Id = @s.InfoID }, null)</td>
+                    <td>@Html.ActionLink("Delete", "Delete", "VehicleData", new { Id = @s.InfoID }, null)</td>
+
+                </tr>
+            </tbody>
+
+        }
+    }
+
+    </table>
+</div>

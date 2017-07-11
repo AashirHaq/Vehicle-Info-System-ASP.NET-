@@ -1,0 +1,65 @@
+﻿@model DBMS_VIS.Models.AppData
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Record Details</h2>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.InfoID)</th>
+            <td>@Html.DisplayTextFor(m => m.InfoID)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.OwnerID)</th>
+            <td>@Html.DisplayTextFor(m => m.OwnerID)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.OwnerName)</th>
+            <td>@Html.DisplayTextFor(m => m.OwnerName)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.Gender)</th>
+            <td>@Html.DisplayTextFor(m => m.Gender)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.VType)</th>
+            <td>@Html.DisplayTextFor(m => m.VType)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.RegistrationNumber)</th>
+            <td>@Html.DisplayTextFor(m => m.RegistrationNumber)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.RegistrationDate)</th>
+            <td>@Html.DisplayTextFor(m => m.RegistrationDate)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.Model)</th>
+            <td>@Html.DisplayTextFor(m => m.Model)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.Color)</th>
+            <td>@Html.DisplayTextFor(m => m.Color)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.ChassisNumber)</th>
+            <td>@Html.DisplayTextFor(m => m.ChassisNumber)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.EngineNumber)</th>
+            <td>@Html.DisplayTextFor(m => m.EngineNumber)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.ManufacturedBy)</th>
+            <td>@Html.DisplayTextFor(m => m.ManufacturedBy)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.VehicleName)</th>
+            <td>@Html.DisplayTextFor(m => m.VehicleName)</td>
+        </tr>
+    </table>
+}
+

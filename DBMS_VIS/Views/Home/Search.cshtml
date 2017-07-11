@@ -1,0 +1,85 @@
+﻿@model List<DBMS_VIS.Models.AppData>
+@{
+    ViewBag.Title = "Search";
+}
+<br /><br />
+@using (Html.BeginForm("Search", "Home", FormMethod.Get))
+{
+    <div class="search-result-search-box">
+<fieldset>
+
+
+    @Html.TextBox("search", null, new { @id = "s", @placeholder = "Search you car...", @size = "45" })
+    <input type="submit" value="search" id="submitButton" />
+    <br />
+    <div id="searchInContainer">
+        @Html.RadioButton("SearchBy", "RegistrationNumber", true, new { @id = "searchSite" })
+        <label>Registration Number</label>
+
+        @Html.RadioButton("SearchBy", "OwnerName", false, new { @id = "searchWeb" })
+        <label>Owner Name</label>
+    </div>
+</fieldset>
+        </div>
+
+}
+<br /><br /><br /><br />
+<div class="search-result-search-box">
+<h2>Search Result</h2>
+</div>
+
+@if (Model != null && Model.Count > 0)
+{
+
+<div class="table-responsive table-outer">
+    <table class="table table-bordered table-hover table-condensed search">
+        <thead>
+            <tr>
+                <th>Owner ID</th>
+                <th>Owner Name</th>
+                <th>Gender</th>
+                <th>Vehicle Type</th>
+                <th>Registration Number</th>
+                <th>Registration Date</th>
+                <th>Model</th>
+                <th>Color</th>
+                <th>Chassis Number</th>
+                <th>Engine Number</th>
+                <th>Manufactured By</th>
+                <th>Vehicle Name</th>
+            </tr>
+        </thead>
+@{
+
+    var altRow = false;
+    foreach (var s in Model)
+    {
+        altRow = !altRow;
+        <tbody>
+            <tr style="background-color:@(altRow? "#e8e8e8" : "white");">
+                <td>@s.OwnerID</td>
+                <td>@s.OwnerName</td>
+                <td>@s.Gender</td>
+                <td>@s.VType</td>
+                <td>@s.RegistrationNumber</td>
+                <td>@s.RegistrationDate</td>
+                <td>@s.Model</td>
+                <td>@s.Color</td>
+                <td>@s.ChassisNumber</td>
+                <td>@s.EngineNumber</td>
+                <td>@s.ManufacturedBy</td>
+                <td>@s.VehicleName</td>
+            </tr>
+        </tbody>
+        }
+    }
+    </table>
+</div>
+    }
+    else
+    {
+        <br /><br /><br /><br />
+    <div class="search-result-search-box">
+        <p>Search result not exist</p>
+    </div>
+}
